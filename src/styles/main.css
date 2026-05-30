@@ -1930,3 +1930,667 @@ button:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
 @media (display-mode: standalone) {
   .pwa-install-banner { display: none !important; }
 }
+
+/* ===================================================================
+   V5 POLISH PASS — tighter spacing, refined typography, consistent
+   interactive feedback. Cascades over earlier rules.
+   =================================================================== */
+
+/* ---------- TYPOGRAPHY refinement ---------- */
+.h1 {
+  font-size: clamp(32px, 8vw, 44px);
+  letter-spacing: -0.032em;
+  line-height: 1.04;
+  margin-bottom: 4px;
+}
+.h2 {
+  font-size: 22px;
+  margin: 28px 0 12px;
+}
+.h3 {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  margin: 24px 0 10px;
+  font-weight: 600;
+}
+.eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  margin-bottom: 8px;
+}
+.sub {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--txt-muted);
+  margin-bottom: 22px;
+}
+
+/* ---------- TOP BAR refinement ---------- */
+.topbar-inner {
+  height: var(--topbar-h);
+  padding: 0 8px;
+}
+.btn-back {
+  width: 44px;
+  height: 44px;
+  margin-left: -4px;  /* visually align tighter to edge */
+}
+.btn-back svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.25;
+}
+.topbar-title {
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--txt-strong);
+}
+.topbar-spacer {
+  width: 44px;
+}
+
+/* ---------- TAB BAR refinement ---------- */
+.tabbar-inner {
+  height: 62px;
+  padding: 4px 0 0;
+}
+.tab {
+  gap: 3px;
+}
+.tab svg {
+  width: 23px;
+  height: 23px;
+  stroke-width: 1.8;
+}
+.tab span {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  margin-top: -1px;
+}
+.tab.active::before {
+  width: 38px;
+  height: 28px;
+  top: 6px;
+  border-radius: 14px;
+}
+
+/* ---------- SCREEN padding ---------- */
+.screen {
+  padding-bottom: calc(56px + var(--safe-bottom));
+}
+.screen-pad {
+  padding: 22px 18px 32px;
+}
+
+/* ---------- CARDS — consistent active feedback ---------- */
+.card,
+.list-card,
+.quick-tile,
+.sec-link,
+.phase-tile,
+.week-tile,
+.ses-card,
+.session,
+.settings-row,
+.chart-card,
+.form-card,
+.decision-card,
+.stat-tile,
+.stat-card,
+.streak-card {
+  transition: transform 0.12s cubic-bezier(0.2, 0, 0, 1),
+              box-shadow 0.15s ease,
+              background 0.15s ease;
+}
+
+button:active,
+.list-card:active,
+.quick-tile:active,
+.sec-link:active,
+.phase-tile:active,
+.week-tile:active,
+.ses-card:active,
+.settings-row:active {
+  /* Slight inset feel, not just scale-down */
+}
+
+/* ---------- HOME — today card refinement ---------- */
+.today-card {
+  padding: 22px 22px 24px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+.today-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+}
+.today-title {
+  font-size: 24px;
+  line-height: 1.18;
+  letter-spacing: -0.018em;
+  margin-bottom: 6px;
+}
+.today-meta {
+  font-size: 12.5px;
+  margin-bottom: 18px;
+}
+.today-cta {
+  padding: 11px 18px 11px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  gap: 7px;
+}
+.today-cta svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- HOME — streak card refinement ---------- */
+.streak-card {
+  padding: 14px 18px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  gap: 14px;
+}
+.streak-ring { width: 52px; height: 52px; }
+.streak-ring svg { width: 52px; height: 52px; }
+.streak-ring .ring-text {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+.streak-title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.streak-sub {
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+/* ---------- STATS strip refinement ---------- */
+.stats-strip {
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.stats-strip .stat-tile {
+  padding: 14px 12px 12px;
+  border-radius: 14px;
+}
+.stats-strip .stat-tile .l {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  margin-bottom: 6px;
+}
+.stats-strip .stat-tile .v {
+  font-size: 26px;
+  letter-spacing: -0.022em;
+}
+.stats-strip .stat-tile .d {
+  font-size: 10.5px;
+  margin-top: 3px;
+}
+
+/* ---------- QUICK actions refinement ---------- */
+.quick-grid {
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.quick-tile {
+  padding: 18px;
+  min-height: 124px;
+  border-radius: 16px;
+}
+.quick-tile .qt-icon { margin-bottom: 12px; }
+.quick-tile .qt-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.8;
+}
+.quick-tile .qt-title {
+  font-size: 16.5px;
+  letter-spacing: -0.005em;
+  line-height: 1.22;
+}
+.quick-tile .qt-meta {
+  font-size: 11px;
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- SECTION links refinement ---------- */
+.sec-links {
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+.sec-link {
+  padding: 15px 18px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+/* ---------- PHASE tiles refinement ---------- */
+.phase-tile {
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+.phase-tile .pt-num {
+  font-size: 40px;
+  letter-spacing: -0.032em;
+  line-height: 0.9;
+}
+.phase-tile .pt-title {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  letter-spacing: -0.012em;
+}
+.phase-tile .pt-range {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+}
+.phase-tile .pt-desc {
+  font-size: 13.5px;
+  line-height: 1.45;
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+.phase-tile .pt-foot {
+  font-size: 11.5px;
+  padding-top: 12px;
+}
+.pt-status {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 4px 10px;
+}
+
+/* ---------- WEEK tiles refinement ---------- */
+.week-list { gap: 10px; }
+.week-tile {
+  padding: 14px 14px 12px;
+  border-radius: 14px;
+  min-height: 118px;
+}
+.week-tile .wt-num {
+  font-size: 32px;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+}
+.week-tile .wt-tag {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+}
+.week-tile .wt-theme {
+  font-size: 11.5px;
+  line-height: 1.35;
+  margin-top: 8px;
+}
+.week-tile .wt-progress {
+  margin-top: 10px;
+  font-size: 10px;
+}
+.week-tile .wt-bar { height: 3px; }
+
+/* ---------- WEEK STRIP (calendar) ---------- */
+.week-strip {
+  gap: 5px;
+  margin: 14px 0 22px;
+}
+.week-strip-day {
+  padding: 9px 0 8px;
+  border-radius: 11px;
+}
+.week-strip-day .wsd-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 5px;
+}
+.week-strip-day .wsd-dot {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ---------- SESSION cards (calendar list) ---------- */
+.ses-list { gap: 9px; }
+.ses-card {
+  padding: 14px 16px;
+  grid-template-columns: 62px 1fr 16px;
+  gap: 12px;
+  border-radius: 14px;
+  min-height: 64px;
+}
+.ses-day {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.ses-focus {
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.008em;
+}
+.ses-dur { font-size: 11px; }
+.ses-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+}
+
+/* ---------- SESSION detail — workout block ---------- */
+.session {
+  padding: 18px;
+  border-radius: 16px;
+}
+.session-head h4 {
+  font-size: 18px;
+  letter-spacing: -0.012em;
+}
+.exercise {
+  padding: 11px 0;
+  font-size: 14px;
+}
+.exercise .e-num {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.exercise .e-name { font-weight: 600; }
+.exercise .e-name small {
+  font-size: 12px;
+  line-height: 1.45;
+  margin-top: 3px;
+  font-weight: 400;
+}
+.exercise .e-sets {
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.exercise .e-rpe {
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 4px 8px;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- BUTTONS refinement ---------- */
+.btn-primary {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  padding: 15px;
+  border-radius: 12px;
+}
+.btn-secondary {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px;
+  border-radius: 12px;
+}
+
+/* ---------- RATING buttons refinement ---------- */
+.rating-row { gap: 7px; }
+.rating-btn {
+  font-size: 17px;
+  font-weight: 600;
+  padding: 13px 0;
+  border-radius: 11px;
+}
+
+/* ---------- KV list refinement ---------- */
+.kv-list li {
+  padding: 11px 0;
+  font-size: 14px;
+}
+.kv-list .k {
+  font-size: 13px;
+  color: var(--txt-muted);
+}
+.kv-list .v {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--txt-strong);
+}
+
+/* ---------- CALLOUTS refinement ---------- */
+.callout {
+  padding: 13px 16px;
+  border-radius: 0 12px 12px 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 14px 0 16px;
+}
+.callout strong {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 5px;
+}
+
+/* ---------- TRACKING — stat cards ---------- */
+.stat-grid {
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.stat-card {
+  padding: 14px 14px 12px;
+  border-radius: 14px;
+}
+.stat-card .l {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  margin-bottom: 4px;
+}
+.stat-card .v {
+  font-size: 28px;
+  letter-spacing: -0.022em;
+}
+.stat-card .d {
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+/* ---------- CHARTS refinement ---------- */
+.chart-card {
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+.chart-card h5 {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+}
+.chart-filter button {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 100px;
+}
+
+/* ---------- FORMS refinement ---------- */
+.form-card {
+  padding: 18px;
+  border-radius: 16px;
+}
+.form-row label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin-bottom: 7px;
+}
+.form-row input,
+.form-row textarea {
+  font-size: 15.5px;
+  padding: 13px 14px;
+  border-radius: 11px;
+  border-width: 1px;
+}
+
+/* ---------- SETTINGS refinement ---------- */
+.settings-group {
+  border-radius: 14px;
+}
+.settings-row {
+  padding: 15px 18px;
+  font-size: 15px;
+}
+.settings-row .sr-meta {
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+/* ---------- PROFILE/OVERVIEW timeline ---------- */
+.phase-row {
+  padding: 18px 0;
+  gap: 16px;
+}
+.phase-row h3 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  margin-bottom: 6px;
+}
+.phase-row p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.phase-row .when .num {
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+.phase-row .tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+}
+
+/* ---------- PRINCIPLES refinement ---------- */
+.principle {
+  padding: 16px 0;
+  gap: 14px;
+}
+.principle .roman {
+  font-size: 28px;
+}
+.principle h4 {
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+/* ---------- DECISIONS refinement ---------- */
+.decision-card {
+  padding: 14px 16px;
+  border-radius: 0 14px 14px 0;
+  margin-bottom: 10px;
+}
+.decision-card .scen {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.decision-card h4 {
+  font-size: 16px;
+  line-height: 1.3;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.decision-card p {
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+/* ---------- REASSESS refinement ---------- */
+.reassess-q {
+  padding: 13px 0;
+}
+.reassess-q p {
+  font-size: 14.5px;
+  font-weight: 500;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.reassess-q .qnum {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+/* ---------- TIGHTER active state for everything tappable ---------- */
+.list-card:active,
+.quick-tile:active,
+.phase-tile:active,
+.week-tile:active,
+.ses-card:active,
+.sec-link:active,
+.settings-row:active {
+  transform: scale(0.985);
+}
+.today-cta:active,
+.btn-primary:active,
+.btn-secondary:active,
+.btn-complete:active {
+  transform: scale(0.97);
+}
+.rating-btn:active {
+  transform: scale(0.94);
+}
+.tab:active {
+  transform: scale(0.92);
+}
+
+/* ---------- IMPROVED safe-area on home indicator devices ---------- */
+@supports (padding: max(0px)) {
+  .tabbar {
+    padding-bottom: max(var(--safe-bottom), 8px);
+  }
+}
+
+/* ---------- DARK MODE small refinements ---------- */
+html[data-theme="dark"] .today-card {
+  background: linear-gradient(135deg, #1a1813 0%, #232017 100%);
+}
+html[data-theme="dark"] .quick-tile .qt-icon { color: var(--ochre); }
+html[data-theme="dark"] .ses-card.is-done {
+  background: rgba(74,93,58,0.08);
+}
+html[data-theme="dark"] .ses-card.is-started {
+  background: rgba(176,74,46,0.08);
+}
+
+/* ---------- Tablet+ layout (iPad portrait/landscape) ---------- */
+@media (min-width: 600px) {
+  .screen-pad {
+    padding: 28px 24px 40px;
+  }
+  .h1 {
+    font-size: 44px;
+  }
+  .today-card {
+    padding: 28px;
+  }
+  .today-title {
+    font-size: 28px;
+  }
+}
+
+/* ---------- Suppress focus rings on touch ---------- */
+@media (hover: none) {
+  button:focus { outline: none; }
+  button:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
+}

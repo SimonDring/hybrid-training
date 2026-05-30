@@ -18,7 +18,7 @@ export const home = {
     const hour = new Date().getHours();
     const greet = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
 
-    // Determine "today's session" — first incomplete in current week, fallback to first session of Phase 1 Week 5
+    // Determine "today's session" — first incomplete in any phase, starting from Phase 1 Week 1
     const phase1 = Plan.getPhase(1);
     let nextSession = null;
     let nextWeek = null;
@@ -37,7 +37,7 @@ export const home = {
       }
     }
 
-    // Week 5 progress for streak ring
+    // Current week progress for streak ring
     const targetWeeklySessions = 6;
     const thisWeekDone = nextWeek
       ? nextWeek.sessions.filter((_, i) => SessionHelper.isCompleted(Utils.weekKey(1, nextWeek.num, i))).length

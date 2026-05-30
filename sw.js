@@ -10,7 +10,7 @@
    - Skip waiting + claim on install/activate so updates apply fast.
    ============================================================= */
 
-const CACHE_VERSION = 'v4-2026-05-20';
+const CACHE_VERSION = 'v5-2026-05-24';
 const CACHE_NAME = `hybrid-cache-${CACHE_VERSION}`;
 
 // Resources to pre-cache on install. Keep this list minimal —

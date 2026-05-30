@@ -69,11 +69,10 @@ export function push(screenId, ctx = {}, title) {
 
 export function pop() {
   if (transitioning || stack.length <= 1) return;
-  transitioning = true;
-  stack.pop();
+  // Only trigger history.back(). The popstate handler will mutate the stack
+  // and render the previous screen. This prevents the double-pop bug where
+  // pop() and the popstate handler both removed entries.
   history.back();
-  const entry = stack[stack.length - 1];
-  renderScreen(entry, 'pop');
 }
 
 export function switchTab(tabId) {
@@ -123,9 +122,13 @@ function updateTabBar(currentScreen) {
 
 export const getStack = () => stack;
 
-// Browser back/forward integration
+// Browser back/forward integration — single source of stack pop + render.
+// Triggered by user tapping the in-app back button (which calls history.back()),
+// the browser/OS back gesture, or the hardware back button on Android.
 window.addEventListener('popstate', () => {
+  if (transitioning) return;
   if (stack.length > 1) {
+    transitioning = true;
     stack.pop();
     const entry = stack[stack.length - 1];
     renderScreen(entry, 'pop');
